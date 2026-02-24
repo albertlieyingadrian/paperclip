@@ -1,0 +1,10 @@
+# Replit config for claude-agents-design-gtm.
+# System packages are in replit.nix (git, node, gh, ffmpeg).
+
+entrypoint = "README.md"
+
+[nix]
+channel = "stable-23_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]

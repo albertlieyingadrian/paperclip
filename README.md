@@ -161,6 +161,34 @@ gh auth login
 
 The setup script runs `check-deps.sh` automatically, so you'll see any missing tools right away.
 
+### Replit / Nix (System Dependencies)
+
+If you use **Replit**, system packages are declared in **`replit.nix`** so the Dependencies → System UI shows them. The same set of tools as `check-deps.sh` is listed there (git, nodejs, gh, ffmpeg). After changing `replit.nix`, reload the shell for packages to apply. `agent-browser` is installed via npm (`npm install -g agent-browser`) and is not in Nix.
+
+### Local Nix (not Replit)
+
+When you’re **not in Replit**, use **`shell.nix`** to get the same tools via Nix. You need [Nix](https://nixos.org/download/) installed.
+
+**One-off shell (enter env, run commands, exit):**
+
+```bash
+nix-shell
+# git, node, gh, ffmpeg are now on PATH
+bash scripts/check-deps.sh
+# exit when done
+exit
+```
+
+**Auto-activate with direnv (recommended):**
+
+```bash
+# One-time: install direnv, then allow this repo
+direnv allow
+# From now on, cd’ing into this repo loads the Nix env automatically
+```
+
+`.envrc` contains `use nix` so direnv will run `nix-shell` when you enter the directory. `agent-browser` is still installed via npm inside the env: `npm install -g agent-browser && agent-browser install`.
+
 ---
 
 ## Architecture

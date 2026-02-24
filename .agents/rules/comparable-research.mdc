@@ -1,0 +1,49 @@
+---
+description: Conventions for comparable research (FINDINGS, screenshots, templates). Apply when creating or editing docs under docs/research/comparables, docs/research-templates, or scripts/capture-*.
+globs: "docs/research/**/*.md,scripts/capture*.js,docs/research-templates/*.md"
+alwaysApply: false
+---
+
+# Comparable research conventions
+
+When creating or editing comparable research, FINDINGS, screenshot paths, or capture scripts, follow these so the workflow stays repeatable.
+
+## Folder and paths
+
+- One folder per company: `docs/research/comparables/[company-slug]/`.
+- Each company has `FINDINGS.md` and optionally `screenshots/[YYYY-MM-DD]/[url-path-slug].png`.
+- **URL path → file slug**: `/` → `landing`; `/pricing` → `pricing`; `/blog/post-name` → `blog-post-name`. Use lowercase, hyphens for path segments, no leading/trailing hyphens.
+
+## FINDINGS.md structure
+
+Use `docs/research-templates/COMPARABLE_RESEARCH_TEMPLATE.md`. Sections:
+
+1. URL (primary + other)
+2. Docs last updated
+3. Docs created
+4. Value props (bullets)
+5. Customer complaints / issues
+6. What this company is NOT solving
+7. **Screenshots (all key URLs)** — table: Date | URL / path | File (link to `screenshots/[date]/[slug].png`)
+8. Citations / references
+9. Notes
+10. Changelog
+
+When adding or updating section 7, use the table format; link files under `screenshots/[YYYY-MM-DD]/`.
+
+## Screenshot discovery
+
+- Prefer same-origin links from the landing page; optionally URLs from `/sitemap.xml`.
+- Skip `/api`, sitemap.xml, and binary extensions (.pdf, .zip, etc.).
+- Cap number of URLs per site to avoid timeouts (e.g. 25 from page, 30 from sitemap).
+
+## Capture script (scripts/capture-all-comparables.js)
+
+- Company list: `COMPANIES` array with `{ slug, primaryUrl }`.
+- New company: add entry to `COMPANIES` and create `docs/research/comparables/[slug]/FINDINGS.md` from template.
+- Subset run: `COMPANIES=slug1,slug2 node scripts/capture-all-comparables.js [date]`.
+- Script writes screenshots to `[company-slug]/screenshots/[date]/[slug].png` and updates section 7 in each FINDINGS.md.
+
+## TLDR
+
+- Keep `docs/research/TLDR_RESEARCH.md` with 1–2 positioning bullets per company; update when adding or refreshing comparables.

@@ -2,6 +2,9 @@
 
 A portable collection of AI agents, skills, commands, and rules for design research and GTM (go-to-market) workflows. Works with **Cursor** (`.cursor/`) and **Claude Code** (`.claude/`) via symlinks from a single source of truth in `.agents/`.
 
+## TODO
+- [ ] add Substack writer
+
 ## Quick start
 
 ```bash

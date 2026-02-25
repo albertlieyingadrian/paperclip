@@ -4,6 +4,7 @@ A portable collection of AI agents, skills, commands, and rules for design resea
 
 ## TODO
 - [ ] add Substack writer
+- [ ] add this https://www.linkedin.com/posts/nishant-h_this-one-section-of-boris-chernys-creator-share-7431797497141997568-HWpt?utm_source=share&utm_medium=member_ios&rcm=ACoAABVwrBUB4W6rjR1iRuQWHwwrg58TaqXTTdY
 
 ## Quick start
 

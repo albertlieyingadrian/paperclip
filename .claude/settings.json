@@ -1,14 +1,15 @@
 {
-    "$schema": "https://json.schemastore.org/claude-code-settings.json",
-    "extraKnownMarketplaces": {
-        "every-marketplace": {
-            "source": {
-                "source": "github",
-                "repo": "EveryInc/compound-engineering-plugin"
-            }
-        }
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "extraKnownMarketplaces": {
+    "every-marketplace": {
+      "source": { "source": "github", "repo": "EveryInc/compound-engineering-plugin" }
     },
-    "enabledPlugins": {
-        "compound-engineering@every-marketplace": true
+    "reverse-api-engineer-marketplace": {
+      "source": { "source": "github", "repo": "kalil0321/reverse-api-engineer" }
     }
+  },
+  "enabledPlugins": {
+    "compound-engineering@every-marketplace": true,
+    "reverse-api-engineer@reverse-api-engineer-marketplace": true
+  }
 }

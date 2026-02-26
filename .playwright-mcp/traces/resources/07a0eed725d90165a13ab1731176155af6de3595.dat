@@ -1,43 +1,0 @@
-
-var ftGUID_8240166="6631572BD9B885";
-var ftConfID_8240166="0";
-var ftParams_8240166="ftOBA=1&ft_agentEnv=0&ft_referrer=https://snapinsta.to/en2&us_privacy=${US_PRIVACY}&site_url=https://snapinsta.to/en2&pub_id=1&sup_platform=1&cachebuster=642202.8219821024";
-var ftKeyword_8240166="";
-var ftCustom_8240166="";
-var ftSection_8240166="";
-var ftSegment_8240166="";
-var ftSegmentList_8240166=[];
-var ftRuleMatch_8240166="0";
-var ftTimestamp_8240166="1772107638";
-var ftGeoC2_8240166="us";
-var ftGeoState_8240166="nj";
-var ftGeoCity_8240166="port norris";
-var ftISP_8240166="comcast cable communications inc.";
-var ftSpeed_8240166="cable";
-var ftConnType_8240166="wifi";
-var ftDMA_8240166="504";
-var ftLong_8240166="-75.06";
-var ftLat_8240166="39.26";
-var ftPostal_8240166="08349";
-var ftTimeZone_8240166="-500";
-var ftMobileCarrier_8240166="";
-var ftImp8240166 = {};
-ftImp8240166.privacy = "x";
-ftImp8240166.guidAge = "-1";
-ftImp8240166.impID = "306651FA-1847-F58F-FBB3-E5CB248DDF6B";
-ftImp8240166.duid = "FT:6631572BD9B885";
-
-ftImp8240166.ft_tpplid = "";
-ftImp8240166.ft_c = {};
-ftImp8240166.gdpr = "";
-ftImp8240166.gdpr_consent = "";
-ftImp8240166.gdpr_pd = "";
-ftImp8240166.oob_consent = "";
-ftImp8240166.gdprStoredConsent = "";
-ftImp8240166.us_privacy = "!!US_PRIVACY!";
-ftImp8240166.gpc = "0";
-
-ftImp8240166.jsAppend = "1";
-var ftCreativeId_8240166 = "5967312";
-(function(){var tag=document.getElementById("ft_servedby_8240166")||function(s){return s[s.length-1]}(document.getElementsByTagName("script")),js=document.createElement("script");js.src="https://ajs-assets.ftstatic.com/ftUtils.js";js.id="ftscript_m8240166";js.setAttribute("name","ftscript_m8240166");tag.parentNode.insertBefore(js,tag)})();window.fTChecker=window.fTChecker||function(id){if(!id)return false;id=""+id;if(window.hasOwnProperty("ftUtils")){window["ft"+id]=Object.assign({},window.ftUtils.common);window["ft"+id].getBannerConfig(id)}else(function(id){window.setTimeout(function(){window.fTChecker(id)},50)})(id)};window.fTChecker("8240166");
-

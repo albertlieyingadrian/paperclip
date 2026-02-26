@@ -1,0 +1,1 @@
+function fib(a){return a<=1?1:fib(a-1)+fib(a-2)}self.onmessage=function(b){try{for(var c,d=b.data.iterCnt,f=b.data.fibNum,a=[],e=0;e<=d;e++)c=performance.now(),fib(f),a.push(performance.now()-c);var g=(a=a.sort())[Math.floor(d/2)]}catch(h){return self.postMessage(-1)}self.postMessage(g)}

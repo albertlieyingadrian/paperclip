@@ -137,6 +137,22 @@ Rules are conventions that apply automatically when editing matching files.
 
 ---
 
+## Session history
+
+Claude Code stores session logs as JSONL at `~/.claude/projects/<url-encoded-project-path>/sessions/<session-uuid>.jsonl`. To turn a session file into a readable Markdown summary (User/Assistant turns, timestamps, tool calls), use the converter script:
+
+```bash
+# Convert a session JSONL to README.md (output: same path with .jsonl → .md)
+bun run scripts/jsonl-session-to-readme.ts .claude-history/reverse-engineer-insta-reel.jsonl
+
+# Custom output path
+bun run scripts/jsonl-session-to-readme.ts .claude-history/reverse-engineer-insta-reel.jsonl docs/my-session-readme.md
+```
+
+**Example:** Converting `.claude-history/reverse-engineer-insta-reel.jsonl` produces `.claude-history/reverse-engineer-insta-reel.md` with session metadata (cwd, branch, version), then `## User` / `## Assistant` sections with timestamps and tool call summaries.
+
+---
+
 ## Prerequisites
 
 Agents depend on various CLI tools. Run the checker any time to see what's installed and what's missing:

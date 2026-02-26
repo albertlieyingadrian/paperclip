@@ -1,0 +1,651 @@
+/* scroll */
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  position: absolute;
+  width: 5px; /* Width of the scrollbar */
+}
+
+
+/* Track (the area on which the scrollbar is rendered) */
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0); /* Track background color */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Handle background color */
+  border-radius: 3px; /* Handle border radius */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Handle background color on hover */
+}
+
+html,body {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	background: #000;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	color: #fff
+}
+
+body * {
+    -webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+.centered-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#the_frame {
+	height: 100%;
+	background-image: url(/rings.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100px 100px
+}
+
+#play_button_background {
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#play_button_background:hover {
+    cursor: pointer;
+}
+
+#play_button_background #play_button:hover { 
+    font-size: 6em;
+    color: #e600e6;
+    background-color: white;
+    border-color: white;
+}
+
+#play_button_background #play_button {
+    box-shadow: 0px 0px 10px black;
+    background-color: #e600e6;
+    border-radius: 100%;
+    border: 2px solid #e600e6;
+    font-size: 5em;
+    color: white;
+    -webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#loading_overlay {
+	display: none;
+	background-color: rgba(0, 0, 0, .7);
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	position: absolute;
+	z-index: 999;
+	background-image: url(/rings.svg?_=243u8);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100px 100px
+}
+
+#top_buttons_parent {
+	width: 100%;
+	height: 0;
+	position: absolute;
+	top: 0
+}
+
+#top_buttons_parent #top_buttons {
+	margin: 0 auto;
+	display: table;
+	font-size: 2em;
+	background: rgba(0, 0, 0, .5);
+	padding: 0 5px
+}
+
+#top_buttons_parent #top_buttons .button {
+	display: inline-block;
+	padding: 5px;
+	color: #fff;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#top_buttons_parent #top_buttons .button:hover {
+	cursor: pointer;
+	color: #e600e6;
+}
+
+#top_buttons_parent #top_buttons .button_inactive {
+	color: rgba(255, 255, 255, .3)!important;
+	pointer-events: none!important
+}
+
+#top_buttons_parent #top_buttons #cc {
+	margin: 0 2px;
+	font-size: 1.1em
+}
+
+#top_buttons_parent #top_buttons #report {
+	font-size: .9em
+}
+
+.button_content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background: rgba(0, 0, 0, .8);
+	display: none
+}
+
+.close {
+	z-index: 99;
+	top: 0;
+	right: 0;
+	padding: 10px 0px;
+	float:right;
+	font-size: 2em;
+	color: #fff;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+.close:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+.button_content #content {
+    max-width: 470px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 15px;
+    padding-top: 5px;
+}
+
+.button_content #content #title {
+	font-size: 1.5em;
+	padding: 10px;
+	font-weight: 700;
+	float: left;
+}
+
+
+
+#subtitles #content .submit {
+	font-size: 1.2em;
+	padding: 5px;
+	float: left;
+	border-radius: 3px;
+	margin: 10px 0;
+	font-weight: 700;
+	background-color: #fff;
+	color: #000;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles #content .submit:hover {
+	cursor: pointer;
+	background-color: #e600e6;
+	color: #fff
+}
+
+#subtitles .list {
+    height: calc(100% - 70px);
+    overflow-y: auto;
+    width:100%;
+    float:left;
+}
+
+#subtitles .list div {
+	font-size: 1.2em;
+	padding: 10px 10px 10px 20px;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles .list div:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+
+.button_content #content #list {
+	float: left;
+	width: calc(100% - 20px);
+	padding: 10px
+}
+
+.button_content #content #list .source {
+	font-size: 1.2em;
+	line-height: 30px;
+	position: relative;
+	float: left;
+	width: 100%;
+	padding: 10px 0
+}
+
+.button_content #content #list .source:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+.button_content #content #list .source:hover #name::before {
+	cursor: pointer;
+	color: #e600e6;
+	opacity: 1
+}
+
+.button_content #content #list .active_source {
+	color: #e600e6;
+	font-weight: 700
+}
+
+.button_content #content #list .active_source #name::before {
+	background-image: url(/audio.svg)!important;
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	padding-right: 10px;
+	content: "";
+	opacity: 1!important
+}
+
+.button_content #content #list .source #name::before {
+	background-image: url(/play-button.svg);
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	padding-right: 10px;
+	content: "";
+	opacity: 0;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+.button_content #content #list .source #name {
+	width: 100%;
+	float:right;
+}
+
+.button_content #content #back {
+	float: left;
+	padding: 0 10px;
+	border-radius: 3px;
+	margin-top: 0;
+	margin-left: -5px;
+	margin-right: 10px;
+	color: #000;
+	background-color: #fff;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+.button_content #content #back:hover {
+	cursor: pointer;
+	background-color: #e600e6;
+	color: #fff
+}
+
+#subtitles #list {
+	padding-top: 10px
+}
+
+#subtitles #list div {
+	font-size: 1.2em;
+	padding: 10px 10px 10px 20px;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles #list div:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+#subtitles #content #login {
+	width: calc(100% - 20px);
+	float: left;
+	padding: 10px
+}
+
+#subtitles #content #login input {
+	width: calc(100% - 22px);
+	float: left;
+	border: 1px solid silver;
+	background: 0 0;
+	color: #fff;
+	margin: 10px 0;
+	font-size: 1.2em;
+	padding: 10px;
+	border-radius: 3px
+}
+
+#subtitles #content #login #login_submit {
+	float: left;
+	padding: 10px;
+	font-size: 1.5em;
+	font-weight: 700;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles #content #login #login_submit:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+#subtitles #content #login #notice {
+	float: left;
+	color: #fff;
+	width: 100%;
+	padding: 10px 0
+}
+
+#subtitles #content #subtitle_langs {
+	float: left;
+	width: calc(100% - 20px);
+	padding: 0 10px;
+	overflow-y: auto;
+	font-size: 1.1em;
+	height: calc(100% - 48px)
+}
+
+#subtitles #content #langs .lang {
+	padding: 10px 0;
+	font-size: 1.1em;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles #content #subtitle_langs .lang:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+#subtitles #content #langs .selected_lang {
+	color: #e600e6;
+	font-weight: 700
+}
+
+#subtitles #content #submit_langs {
+	position: absolute;
+	right: 0;
+	font-size: 1.2em;
+	padding: 5px;
+	border-radius: 3px;
+	margin: 10px 0;
+	font-weight: 700;
+	background-color: #fff;
+	color: #000;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles #content #submit_langs:hover {
+	cursor: pointer;
+	background-color: #e600e6;
+	color: #fff
+}
+
+#subtitles #content #subtitle_list {
+	float: left;
+	padding: 0 10px;
+	width: calc(100% - 20px)
+}
+
+#subtitles #content #subtitle_list .subtitle {
+	font-size: 1.1em;
+	padding: 10px 0;
+	float: left;
+	overflow-wrap: break-word;
+	width: calc(100% - 20px);
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#subtitles #content #subtitle_list .subtitle:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+
+#reporting #content #list {
+    
+}
+
+#reporting #content #list div {
+	padding: 10px;
+	font-size: 1.2em
+}
+
+#reporting #content #list div:hover {
+	color: #e600e6;
+	cursor: pointer
+}
+
+#reporting #content #list .selected_problem {
+	color: #e600e6;
+	font-weight: 700
+}
+
+#reporting #content #report_submit {
+	float: left;
+	padding: 10px;
+	font-size: 1.5em;
+	font-weight: 700;
+	-webkit-transition: all ease 200ms;
+	-moz-transition: all ease 200ms;
+	-o-transition: all ease 200ms;
+	transition: all ease 200ms
+}
+
+#reporting #content #report_submit:hover {
+	cursor: pointer;
+	color: #e600e6
+}
+
+
+#top_eps_buttons {
+    height: 0;
+    opacity: 0;
+    text-shadow: 0 0 7px black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.3rem;
+    padding: 0px;
+    margin-top: 2px;
+}
+
+#top_eps_buttons .button {
+    display: inline-block;
+    padding: 5px;
+    opacity: 0.8;
+    color: #fff;
+    -webkit-transition: all ease 200ms;
+    -moz-transition: all ease 200ms;
+    -o-transition: all ease 200ms;
+    transition: all ease 200ms;
+}
+
+#top_eps_buttons .button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+#top_eps_buttons .button_inactive {
+    pointer-events: none !important;
+    opacity: 0.3 !important;
+}
+
+#top_eps_buttons #ep_close {
+    display: none;
+}
+
+#eps {
+    display: none;
+    position: absolute;
+    top: 30px;
+    width: 250px;
+    max-height: 170px;
+    overflow-y: auto;
+    padding: 0px 10px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+#eps .ep {
+    font-size: 0.8rem;
+    line-height: 18px;
+    padding: 3px 0px;
+    opacity: 0.8;
+}
+
+
+#eps .ep:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+#eps .ep_active {
+    color: white !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+}
+
+@media only screen and (max-width:625px) {
+	#subtitles #submit_langs {
+		margin: 50px 10px 10px!important
+	}
+}
+
+@media only screen and (max-height: 350px) {
+    #reporting #content #list {
+        height: 40%;
+        overflow:auto;
+    }
+}
+
+
+html:hover .servers , html:hover #top_eps_buttons {
+    height: auto;
+    opacity:1;
+}
+
+.servers {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.servers .serversToggle {
+    opacity: 0.8;
+    font-size: 1.5rem;
+    text-shadow: 0 0 7px black;
+}
+
+.servers .serversToggle:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.servers .serversList {
+    display: none;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+}
+.servers .serversList .server {
+    padding:5px 7px;   
+}
+.servers .serversList .server:hover {
+    background-color: rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+
+
+.reporting {
+    opacity: 0;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.reporting .reportToggle {
+    opacity: 0.8;
+    font-size: 1.5rem;
+    text-shadow: 0 0 7px black;
+}
+
+.reporting .reportToggle:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.reporting .reportList {
+    display: none;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+}
+.reporting .reportList .report {
+    padding:5px 7px;   
+}
+.reporting .reportList .report:hover {
+    background-color: rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+
+

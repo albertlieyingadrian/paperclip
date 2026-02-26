@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["jobs"],
+  "properties": {
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "agentId", "source", "schedule", "enabled"],
+        "properties": {
+          "id": { "type": "string", "description": "Unique job id" },
+          "agentId": { "type": "string", "description": "Agent name (e.g. landing-page-design-analysis, duplicate-pr)" },
+          "source": { "type": "string", "enum": ["opencode", "agents"], "description": "opencode = OpenCode SDK; agents = .agents/ Claude API runner" },
+          "schedule": { "type": "string", "description": "Cron expression (e.g. 0 9 * * 1)" },
+          "defaultTask": { "type": "string", "description": "Default user prompt for this run" },
+          "enabled": { "type": "boolean", "default": true },
+          "output": { "type": "string", "enum": ["commit", "slack", "none"], "default": "none", "description": "Where to send results" }
+        }
+      }
+    }
+  }
+}

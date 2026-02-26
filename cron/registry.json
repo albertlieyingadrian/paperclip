@@ -1,0 +1,23 @@
+{
+  "$schema": "./registry.schema.json",
+  "jobs": [
+    {
+      "id": "landing-design-weekly",
+      "agentId": "landing-page-design-analysis",
+      "source": "agents",
+      "schedule": "0 9 * * 1",
+      "defaultTask": "Run design analysis for all comparables. Use today's date for screenshots.",
+      "enabled": false,
+      "output": "commit"
+    },
+    {
+      "id": "duplicate-pr-on-pr",
+      "agentId": "duplicate-pr",
+      "source": "opencode",
+      "schedule": "0 * * * *",
+      "defaultTask": "",
+      "enabled": false,
+      "output": "none"
+    }
+  ]
+}
